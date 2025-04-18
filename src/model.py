@@ -58,7 +58,7 @@ def train_model(model, train_dataloader, test_dataloader, optimizer, lr_schedule
             running_loss += loss.item() * batch['labels'].size(0)
 
         epoch_loss = running_loss / test_length
-        print(f'Val Loss: {epoch_loss:.4f}, f1 score: {f1.compute()['f1']:.4f}')
+        print(f'Val Loss: {epoch_loss:.4f}, f1 score: {f1.compute()["f1"]:.4f}')
 
 
 def infer_model(model, tokenizer, df, device, num_samples=5):
