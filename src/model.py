@@ -14,7 +14,7 @@ def load_model(model_name="distilbert-base-uncased-finetuned-sst-2-english", num
     
     return model
 
-def train(model, train_dataloader, test_dataloader, optimizer, lr_scheduler, train_length, test_length, device, num_epochs=5):
+def train_model(model, train_dataloader, test_dataloader, optimizer, lr_scheduler, train_length, test_length, device, num_epochs=5):
     for epoch in range(num_epochs):
         print(f'Epoch {epoch + 1}/{num_epochs}, Training:')
 
