@@ -38,7 +38,6 @@
     https://drive.google.com/uc?id=1snKee0oLYAKJ-F5sTFZmh7qpEZrNU-Xg
 
 ## Структура проекта
-    ```bash
     sentiment-analysis/
     ├── data/           # Датасет
     ├── src/           # Исходный код модели и вспомогательные функции
