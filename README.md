@@ -33,9 +33,9 @@
     ```bash
     pip install -r requirements.txt -qq
 
-3. В ноутбуке автоматически загружаются предобученные параметры модели:
+3. В ноутбуке автоматически загружаются предобученные параметры модели. Ссылка для загрузки весов: 
     ```bash
-    Ссылка для загрузки весов: https://drive.google.com/uc?id=1snKee0oLYAKJ-F5sTFZmh7qpEZrNU-Xg
+    https://drive.google.com/uc?id=1snKee0oLYAKJ-F5sTFZmh7qpEZrNU-Xg
 
 ## Структура проекта
     ```bash
