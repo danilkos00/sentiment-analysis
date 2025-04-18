@@ -1,9 +1,11 @@
 # Clothing Reviews Sentiment Analysis
 
-## Описание проекта
-Проект **анализирует отзывы клиентов** на товары из категории одежды и **определяет их тональность** — позитивную или негативную.
+## Project Description
+This project **analyzes customer reviews** in the clothing category and **predicts their sentiment** — positive or negative.
 
-## Используемые технологии
+The model is based on a **fine-tuned version of `distilbert-base-uncased`** from Huggingface Transformers.
+
+## Technologies Used
 - **PyTorch**
 - **Pandas**
 - **NumPy**
@@ -12,36 +14,36 @@
 - **spaCy**
 - **NLTK**
 
-## Данные
-Используется датасет **Womens Clothing E-Commerce Reviews**.
+## Dataset
+The project uses the **Womens Clothing E-Commerce Reviews** dataset.
 
-## Быстрый старт
+## Quick Start
 
-Запустить проект можно через Google Colab или локально.
+You can run the project either in Google Colab or locally.
 
-### Запуск через Google Colab
+### Launch via Google Colab
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danilkos00/sentiment-analysis/blob/main/sentiment.ipynb)
 
-### Локальный запуск
+### Local Launch
 
-1. Клонируйте репозиторий:
+1. Clone the repository:
    ```bash
    git clone https://github.com/danilkos00/sentiment-analysis.git
    cd sentiment-analysis
 
-2. Установите зависимости:
+2. Install dependencies:
     ```bash
     pip install -r requirements.txt -qq
 
-3. В ноутбуке автоматически загружаются предобученные параметры модели. Ссылка для загрузки весов: 
+3. Pretrained model weights are automatically downloaded inside the notebook. Download link for model weights:
     ```bash
     https://drive.google.com/uc?id=1snKee0oLYAKJ-F5sTFZmh7qpEZrNU-Xg
 
-## Структура проекта
+## Project Structure
     sentiment-analysis/
-    ├── data/           # Датасет
-    ├── src/           # Исходный код модели и вспомогательные функции
-    ├── requirements.txt # Зависимости проекта
-    ├── sentiment.ipynb     # Jupyter-ноутбук
-    └── README.md      # Описание проекта
+    ├── data/           # Dataset
+    ├── src/           # Source code for model and data utilities
+    ├── requirements.txt # Project dependencies
+    ├── sentiment.ipynb     # Jupyter-notebook
+    └── README.md      # Project description
 
