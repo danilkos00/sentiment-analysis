@@ -1,7 +1,10 @@
+import numpy as np
+import pandas as pd
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from tqdm import tqdm
 from evaluate import load
 import torch
+from src.preprocessing import text_preprocessing
 
 
 def load_tokenizer(model_name="distilbert-base-uncased-finetuned-sst-2-english"):
@@ -55,4 +58,21 @@ def train_model(model, train_dataloader, test_dataloader, optimizer, lr_schedule
             running_loss += loss.item() * batch['labels'].size(0)
 
         epoch_loss = running_loss / test_length
-        print(f'Val Loss: {epoch_loss:.4f}, f1 score: {f1.compute()}')
+        print(f'Val Loss: {epoch_loss:.4f}, f1 score: {f1.compute()['f1']:.4f}')
+
+
+def infer_model(model, tokenizer, df, device, num_samples=5):
+    logits = []
+    model.eval()
+    indices = np.random.randint(0, df.shape[0], num_samples)
+    inputs = df.loc[indices]
+    inputs['text'] = inputs['text'].apply(text_preprocessing)
+    for i in range(num_samples):
+        tokenized_text = tokenizer(inputs.iloc[i].text, padding='max_length', truncation=True, return_tensors='pt')
+        tokenized_text = {k: v.to(device) for k, v in tokenized_text.items()}
+        with torch.no_grad():
+            logits.append(model(**tokenized_text).logits)
+    logits = torch.cat(logits)
+
+    return pd.DataFrame({'text' : inputs['text'].values, 'predict' : logits.argmax(-1).data.cpu().numpy(), 
+                         'label' : inputs.label.values})
